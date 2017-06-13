@@ -12,10 +12,12 @@ var CountDownForm = React.createClass({
   },
   render: function(){
     return (
-      <form ref="form" onSubmit={this.onSubmit} class="countdown-form">
-        <input type="text" ref="seconds" placeholder="set your countdown"/>
-        <button className="button expanded" type="submit">Start</button>
-      </form>
+      <div>
+        <form ref="form" onSubmit={this.onSubmit} class="countdown-form">
+          <input type="text" ref="seconds" placeholder="set your countdown"/>
+          <button className="button expanded" type="submit">Start</button>
+        </form>
+      </div>
     )
   }
 });
