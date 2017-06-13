@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   entry: [
@@ -10,6 +11,12 @@ module.exports = {
     jquery: 'jQuery'
   },
   plugins: [
+    new webpack.DefinePlugin({
+    'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
+    new UglifyJSPlugin(),
     new webpack.ProvidePlugin({
       '$': 'jquery',
       'jQuery': 'jquery'
@@ -26,6 +33,7 @@ module.exports = {
       Nav: "app/components/Nav.jsx",
       Timer: "app/components/Timer.jsx",
       Countdown: "app/components/Countdown.jsx",
+      Clock: "app/components/Clock.jsx",
       applicationStyles: "app/styles/app.scss"
     },
     extensions: ['', '.js', '.jsx']
